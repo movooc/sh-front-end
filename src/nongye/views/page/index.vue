@@ -1,7 +1,6 @@
 <template>
-  <section class="home">
-    {{ homeInfo }}
-    <router-link to="/page">点击进入页面</router-link>
+  <section class="page">
+    {{ pageInfo }}
   </section>
 </template>
 
@@ -12,7 +11,7 @@
     name: 'home',
     computed: {
       ...mapGetters({
-        homeInfo: 'getHomeInfo',
+        pageInfo: 'changePageInfo',
       })
     },
     created() {

@@ -1,1 +1,0 @@
-export const UPDATE_SERIES_LIST = 'UPDATE_SERIES_LIST'

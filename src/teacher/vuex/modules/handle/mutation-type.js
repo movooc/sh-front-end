@@ -1,1 +1,0 @@
-export const FETCH_HANDLE_LIST = 'FETCH_HANDLE_LIST'
