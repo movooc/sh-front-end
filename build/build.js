@@ -35,9 +35,9 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
       '  Ready...\n'
     ));
     // recombination start
-    //if(!config.build.env.PROJECT_NAME){
-    Recombination();
-    //}
+    if(!config.build.env.PROJECT_NAME){
+      Recombination();
+    }
   })
 });
 
