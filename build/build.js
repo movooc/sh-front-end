@@ -35,9 +35,9 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
       '  Ready...\n'
     ));
     // recombination start
-    if(!config.build.env.PROJECT_NAME){
-      Recombination();
-    }
+    //if(!config.build.env.PROJECT_NAME){
+    Recombination();
+    //}
   })
 });
 
@@ -54,6 +54,10 @@ function Recombination() {
   for(let _html of htmlPath){
     if(/\.html$/.test(_html)){
       let fileName = _html.replace(/\.html$/,'');
+      if(config.build.env.PROJECT_NAME && config.build.env.PROJECT_NAME != fileName){
+        continue;
+      }
+
       let preDirPath = distPath+'/'+pckVersion;
       let preStaticPath = preDirPath+'/static';
       // create dir
@@ -134,7 +138,19 @@ function Recombination() {
   // start removing
   fsExtra.remove(outStaticPath, function (err) {
     if(err)return console.log(err);
-    console.log(chalk.yellow('  delete success!!!'));
+    console.log(chalk.yellow('  delete out static success!!!'));
+    // start removing
+    let __htmlPath = fs.readdirSync(distPath);
+    for(let __html of __htmlPath){
+      if(!/\.html$/.test(__html)){
+        continue;
+      }
+      // remove
+      fsExtra.remove(distPath+'/'+__html, function (err) {
+        if(err)return console.log(err);
+        console.log(chalk.yellow('  delete out '+__html+' success!!!'));
+      });
+    }
   });
 }
 

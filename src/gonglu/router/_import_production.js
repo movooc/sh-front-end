@@ -4,5 +4,6 @@ module.exports = file => {
 };
 
 const routerAsyn = {
-  'home/index': r => require.ensure([], () => r(require(`../views/home/index`)), `nongye/nongye-home`),
+  'home/index': r => require.ensure([], () => r(require(`../views/home/index`)), `gonglu/gonglu-home`),
+  'page/index': r => require.ensure([], () => r(require(`../views/page/index`)), `gonglu/gonglu-page`),
 };
