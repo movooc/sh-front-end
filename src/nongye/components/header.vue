@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="container">
-      <h1>易灵微课</h1>
+      <h1>农业项目</h1>
     </div>
   </header>
 </template>
